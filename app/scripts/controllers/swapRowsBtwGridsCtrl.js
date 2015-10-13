@@ -16,6 +16,7 @@
     $scope.disabledright = true;
     $scope.disabledleft = true;
    
+    //Left grid Options
     $scope.leftgridOptions = { 
                 data: 'userInfoData.workGroup',
                 columnDefs: [
@@ -41,7 +42,8 @@
                                  }
                              }
     };
-
+    
+    //Right grid Options
     $scope.rightgridOptions = { 
                 data: 'groupGridData.workGrouplist',
                 columnDefs: [
@@ -67,6 +69,7 @@
                              }              
     };
 
+    // mock data to populate grid data
     $http.get('mock/getAllWorkGroups.json').success(function(data){
                 $scope.groupGridData = data;
 
@@ -78,7 +81,8 @@
 
                // console.log(angular.toJson(data));
     });  
-
+    
+    //function to swap from left to right
     $scope.grpRightClick = function() {
         
         for(var i=0; i<$scope.leftToRightSelections.length; i++){
@@ -92,7 +96,8 @@
         $scope.leftToRightSelections.splice(0, $scope.leftToRightSelections.length); 
         $scope.disabledright = true;
     };
-
+    
+    //function to swap from right to left
     $scope.grpLeftClick = function() {
         
         for(var i=0; i<$scope.rightToLeftSelections.length; i++){
